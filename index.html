@@ -37,6 +37,7 @@
         <canvas id="qr"></canvas>
         <p id="result" class="lead"></p>
         <div class="input-group input-group-lg">
+          <input about="" type="text" id="secret">
           <input id="template" value="v1|{{random.number}}|{{name.firstName}}|{{name.lastName}}|{{company.companyName}}|{{name.jobTitle}}|{{internet.email}}|{{phone.phoneNumber}}|{{address.country}}" type="text" class="form-control">
           <div>
             <label for="locales"></label>
@@ -95,17 +96,30 @@
     <script src="lib/bootstrap.min.js"></script>
     <script src="lib/qrious.min.js"></script>
     <script src="lib/faker.min.js"></script>
+    <script src="lib/aes.js"></script>
     <script src="main/main.js"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/core.min.js"></script>-->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>-->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/aes.js"></script>-->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/enc-base64.js"></script>-->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/enc-utf8.js"></script>-->
+    <script type="text/javascript" src="bower_components/crypto-js/core.js"></script>
+    <script type="text/javascript" src="bower_components/crypto-js/crypto-js.js"></script>
+    <script type="text/javascript" src="bower_components/crypto-js/aes.js"></script>
+    <script type="text/javascript" src="bower_components/crypto-js/enc-base64.js"></script>
+    <script type="text/javascript" src="bower_components/crypto-js/enc-utf8.js"></script>
+
+
     <script>
       document.getElementById("create-button").onclick = make;
-      make();
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker
-          .register('service-worker.js')
-          .then(function() {
-              console.log('Service Worker Registered');
-          });
-      }
+      makeDefault();
+      // if ('serviceWorker' in navigator) {
+      //   navigator.serviceWorker
+      //     .register('service-worker.js')
+      //     .then(function() {
+      //         console.log('Service Worker Registered');
+      //     });
+      // }
     </script>
   </body>
 </html>
