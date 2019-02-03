@@ -1,6 +1,6 @@
-# Jarod
+# Encrypted QR Code Generator
 
-Create random profiles and make QR codes for them.
+Create random profiles and make Encrypted QR codes for them.
 
 Available offline as a Progressive Web App. Just add the app to your Home Screen.
 
