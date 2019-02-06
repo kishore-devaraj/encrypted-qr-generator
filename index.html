@@ -36,8 +36,14 @@
         <h1 class="cover-heading">Create random profiles.</h1>
         <canvas id="qr"></canvas>
         <p id="result" class="lead"></p>
+        <div class="input-group input-group-lg secret-container">
+          <input about="" type="text" id="secret" class="form-control">
+
+          <button class="btn btn-lg btn-secondary" id="generate-key"> Generate new key</button>
+        </div>
+
+
         <div class="input-group input-group-lg">
-          <input about="" type="text" id="secret">
           <input id="template" value="v1|{{random.number}}|{{name.firstName}}|{{name.lastName}}|{{company.companyName}}|{{name.jobTitle}}|{{internet.email}}|{{phone.phoneNumber}}|{{address.country}}" type="text" class="form-control">
           <div>
             <label for="locales"></label>
@@ -112,6 +118,8 @@
 
     <script>
       document.getElementById("create-button").onclick = make;
+
+      document.getElementById("generate-key").onclick = generateKey;
       makeDefault();
       // if ('serviceWorker' in navigator) {
       //   navigator.serviceWorker

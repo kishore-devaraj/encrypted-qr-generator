@@ -11,11 +11,17 @@ function make() {
     qr.value = encryptedInput;
 }
 
+
+function generateKey() {
+  var secretKey = generatePassphrase();
+  document.getElementById("secret").value = secretKey;
+
+}
+
 function makeDefault() {
     var profile = faker.fake("v1|{{random.number}}|{{name.firstName}}|{{name.lastName}}|{{company.companyName}}|{{name.jobTitle}}|{{internet.email}}|{{phone.phoneNumber}}|{{address.country}}");
     // var secret = generatePassphrase();
     var secret = 'VGdmUWVzdHZBekt3c3pUeQ==';
-    console.log("hi", secret)
     document.getElementById("secret").value = secret;
 
     document.getElementById("result").innerHTML = profile;
