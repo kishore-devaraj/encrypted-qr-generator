@@ -21,7 +21,12 @@ function generateKey() {
 function makeDefault() {
     var profile = faker.fake("v1|{{random.number}}|{{name.firstName}}|{{name.lastName}}|{{company.companyName}}|{{name.jobTitle}}|{{internet.email}}|{{phone.phoneNumber}}|{{address.country}}");
     // var secret = generatePassphrase();
-    var secret = 'VGdmUWVzdHZBekt3c3pUeQ==';
+
+
+  var urlParams = new URLSearchParams(window.location.search);
+  var myParam = urlParams.get('secret');
+
+    var secret = myParam || 'VGdmUWVzdHZBekt3c3pUeQ==';
     document.getElementById("secret").value = secret;
 
     document.getElementById("result").innerHTML = profile;
