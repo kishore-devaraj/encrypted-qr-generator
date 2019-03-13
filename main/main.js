@@ -2,13 +2,17 @@ function make() {
     var template = document.getElementById("template").value;
     faker.locale = document.getElementById("locales").value;
     var secret = document.getElementById("secret").value;
-
-
+    var qrValue;
+    
     var input = faker.fake(template);
-    var encryptedInput = encrypt(input, secret);
+    if(secret.trim() !== ''){
+        qrValue = encrypt(input, secret);
+    } else {
+        qrValue = input;
+    }
     document.getElementById("result").innerHTML = input;
 
-    qr.value = encryptedInput;
+    qr.value = qrValue;
 }
 
 
@@ -25,7 +29,6 @@ function makeDefault() {
 
   var urlParams = new URLSearchParams(window.location.search);
   var myParam = urlParams.get('secret');
-
     var secret = myParam || 'VGdmUWVzdHZBekt3c3pUeQ==';
     document.getElementById("secret").value = secret;
 
