@@ -29,7 +29,7 @@ function makeDefault() {
 
   var urlParams = new URLSearchParams(window.location.search);
   var myParam = urlParams.get('secret');
-    var secret = myParam || 'VGdmUWVzdHZBekt3c3pUeQ==';
+    var secret = myParam || 'YTVxZkhrbUdoaXp6dlJncw==';
     document.getElementById("secret").value = secret;
 
     document.getElementById("result").innerHTML = profile;
