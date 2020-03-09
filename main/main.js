@@ -1,16 +1,19 @@
 function make() {
     var template = document.getElementById("template").value;
+  console.log(template)
     faker.locale = document.getElementById("locales").value;
     var secret = document.getElementById("secret").value;
     var qrValue;
     
     var input = faker.fake(template);
+  console.log("input", input)
     if(secret.trim() !== ''){
         qrValue = encrypt(input, secret);
     } else {
         qrValue = input;
     }
     document.getElementById("result").innerHTML = input;
+    document.getElementById("encrypted-result").innerHTML = qrValue;
 
     qr.value = qrValue;
 }
@@ -36,6 +39,7 @@ function makeDefault() {
 
     var encryptedProfile = encrypt(profile, secret);
 
+    document.getElementById("encrypted-result").innerHTML = encryptedProfile;
     qr.value = encryptedProfile;
 }
 
